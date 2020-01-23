@@ -5,6 +5,8 @@
 # Idea
 /.idea
 
+output.html
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
