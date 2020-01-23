@@ -2,15 +2,25 @@ import nltk
 
 
 def parse(text):
+    text_elements = split_text(text)
     tokenized_sentences = []
-    sentences = nltk.sent_tokenize(text)
-    for sentence in sentences:
-        s = {
-            'token': nltk.word_tokenize(sentence),
-            'text': sentence
-        }
-        tokenized_sentences.append(s)
+    for elements in text_elements:
+        sentences = nltk.sent_tokenize(elements)
+        for sentence in sentences:
+            s = {
+                'token': nltk.word_tokenize(sentence),
+                'text': sentence
+            }
+            tokenized_sentences.append(s)
     return tokenized_sentences
+
+
+def split_text(text):
+    split = text.split('\n\n')
+    text_elements = []
+    for s in split:
+        text_elements.append(s.replace('\n', ' ').strip())
+    return text_elements
 
 
 def score(sentences):
