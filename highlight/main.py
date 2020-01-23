@@ -1,10 +1,11 @@
 from highlight.documents.web import fetch
 from highlight.nlp.nlp import parse, score
 from highlight.generation.generator import generate_output
+import sys
 
 
 def main():
-    article = fetch("https://docs.python-guide.org/writing/structure/#structure-of-code-is-key")
+    article = fetch(sys.argv[1])
     document = parse(article)
     document = score(document)
     generate_output(document, 'output.html')
