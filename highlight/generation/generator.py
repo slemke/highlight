@@ -12,7 +12,7 @@ def generate_output(document, path):
             content += '<span class="highlight">'
         else:
             content += '<span>'
-        content += ' ' + escape(sentences['text'])
+        content += escape(sentences['text']) + ' '
 
         content += "</span>"
     template = template.replace('{{ content }}', content)
